@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SWACHH_BANGALORE</string>
+    <string name="home_page">SWACHH BANGALORE</string>
+
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="namefield">Enter your name</string>
+    <string name="phonenumberfield">Enter your mobile no.</string>
+    <string name="emailAddressField">Enter your email address</string>
+    <string name="homepagebutton">Proceed</string>
+    <string name="mainactivity2_button1">REPORT DUMPED WASTE</string>
+    <string name="mainactivity2_button2">REPORT POTHOLE</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="hintforsearch">Enter Address, City or Zip Code</string>
+    <string name="title_activity_final">finalActivity</string>
+    <string name="finalactivitytext">Enter your complain ID</string>
+    <string name="cameraActivityBut">PROCEED</string>
+</resources>
