@@ -17,11 +17,25 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+public class camera_function extends AppCompatActivity{
+    public static final int CAMERA_REQUEST = 999;
+    ImageView imageView; String path;
+    @Override protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        imageView = (ImageView)findViewById(R.id.image_id);
+    }
 
-public class camera_function extends AppCompatActivity {public static final int CAMERA_REQUEST = 999; ImageView imageView; String path; @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); imageView = (ImageView)findViewById(R.id.image_id); } public void openCamera(View view) { Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); startActivityForResult(intent,CAMERA_REQUEST); }
-    Button b1;
+    public void openCamera(View view)
+    {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent,CAMERA_REQUEST);
+    }
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==CAMERA_REQUEST)
         {
@@ -29,26 +43,11 @@ public class camera_function extends AppCompatActivity {public static final int 
             //imageView.setImageBitmap(bitmap);
             path = saveToInternalStorage(bitmap);
             loadImageFromStorage(path);
-
-            Button button5 = findViewById(R.id.CameraButton);
-            button5.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(camera_function.this,finalActivity.class);
-                    startActivity(intent);
-                }
-            });
         }
-        b1 = (Button)findViewById(R.id.CameraButton);
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(camera_function.this,finalActivity.class);
-                startActivity(intent);
-            }
-        });
     }
-    private String saveToInternalStorage(Bitmap bitmapImage){
+
+    private String saveToInternalStorage(Bitmap bitmapImage)
+    {
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
@@ -69,9 +68,9 @@ public class camera_function extends AppCompatActivity {public static final int 
                 e.printStackTrace();
             }
         }
-
         return directory.getAbsolutePath();
     }
+
     private void loadImageFromStorage(String path)
     {
 
@@ -87,8 +86,4 @@ public class camera_function extends AppCompatActivity {public static final int 
         }
 
     }
-
-
-
 }
-
